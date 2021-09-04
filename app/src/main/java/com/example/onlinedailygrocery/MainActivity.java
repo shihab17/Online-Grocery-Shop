@@ -5,8 +5,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.onlinedailygrocery.adapter.CategoryAdapter;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     List<DiscountedProducts> discountedProductsList;
     List<Category> categoryList;
 
+    ImageView allCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
 
         discountRecyclerView = findViewById(R.id.discountedRecyler);
         categoryRecyclerView = findViewById(R.id.categoryRecycler);
+        allCategory = findViewById(R.id.allCategoryImage);
+
+        allCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,AllCategory.class);
+                startActivity(i);
+            }
+        });
         //adding data to model
         discountedProductsList = new ArrayList<>();
         discountedProductsList.add(new DiscountedProducts(1, R.drawable.discountberry));

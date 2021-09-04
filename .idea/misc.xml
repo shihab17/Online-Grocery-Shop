@@ -8,7 +8,9 @@
         <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2203125" />
         <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/drawable/ic_egg.xml" value="0.2203125" />
         <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/drawable/search_bg.xml" value="0.2203125" />
-        <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/activity_all_category.xml" value="0.33" />
+        <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/all_category_row_items.xml" value="0.1490036231884058" />
         <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/category_row_items.xml" value="0.18" />
         <entry key="..\:/Android App/OnlineDailyGrocery/app/src/main/res/layout/discounted_row_items.xml" value="0.18795289855072464" />
       </map>
