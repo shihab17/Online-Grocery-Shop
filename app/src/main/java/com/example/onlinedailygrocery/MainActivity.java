@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.onlinedailygrocery.adapter.DiscountedProductAdapter;
 import com.example.onlinedailygrocery.model.DiscountedProducts;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setDiscountedRecycler(List<DiscountedProducts> dataList) {
+        Log.d("DataList: ","dataList");
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         discountRecyclerView.setLayoutManager(layoutManager);
         discountedProductAdapter = new DiscountedProductAdapter(this,dataList);

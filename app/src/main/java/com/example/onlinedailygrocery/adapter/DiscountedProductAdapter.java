@@ -36,8 +36,8 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
 
     @Override
     public int getItemCount() {
-//        return discountedProducts.size();
-        return 5;
+        return discountedProductsList.size();
+//        return 5;
     }
 
     public static class DiscountedProductViewHolder extends RecyclerView.ViewHolder {
