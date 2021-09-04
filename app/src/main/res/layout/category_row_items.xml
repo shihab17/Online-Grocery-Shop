@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
     android:layout_height="wrap_content">
+
 
     <ImageView
         android:id="@+id/categoryImage"
-        android:layout_width="130dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/discountberry" />
+        app:srcCompat="@drawable/ic_home_fish" />
 </androidx.constraintlayout.widget.ConstraintLayout>

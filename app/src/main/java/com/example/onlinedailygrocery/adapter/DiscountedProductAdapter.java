@@ -46,7 +46,7 @@ public class DiscountedProductAdapter extends RecyclerView.Adapter<DiscountedPro
         public DiscountedProductViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            discountImageView = itemView.findViewById(R.id.discountImage);
+            discountImageView = itemView.findViewById(R.id.categoryImage);
         }
     }
 }
