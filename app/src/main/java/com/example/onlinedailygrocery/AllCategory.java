@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.onlinedailygrocery.adapter.AllCategoryAdapter;
 import com.example.onlinedailygrocery.model.AllCategoryModel;
@@ -18,12 +21,24 @@ public class AllCategory extends AppCompatActivity {
     AllCategoryAdapter allCategoryAdapter;
     List<AllCategoryModel> categoryModelList;
 
+    ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_category);
 
         allCategoryRecycler = findViewById(R.id.all_category);
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(AllCategory.this,MainActivity.class);
+                startActivity(back);
+                finish();
+            }
+        });
 
         categoryModelList = new ArrayList<>();
         categoryModelList.add(new AllCategoryModel(1, R.drawable.discountberry));
