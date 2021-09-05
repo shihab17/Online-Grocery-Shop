@@ -1,5 +1,6 @@
 package com.example.onlinedailygrocery.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.LabeledIntent;
@@ -54,6 +55,8 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
                 intent.putExtra("image",recyclerViewList.get(position).getBgImageURL());
                 intent.putExtra("price",recyclerViewList.get(position).getPrice());
                 intent.putExtra("desc",recyclerViewList.get(position).getDescription());
+                intent.putExtra("quantity",recyclerViewList.get(position).getQuantity());
+                intent.putExtra("unit",recyclerViewList.get(position).getUnit());
                 context.startActivity(intent);
             }
         });

@@ -9,44 +9,54 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProductDetails extends AppCompatActivity {
+
     ImageView img, back;
-    TextView productName,productPrice, productDescription,productQuantity, productUnit;
-    String name,desc,price,qty, unit;
+    TextView proName, proPrice, proDesc, proQty, proUnit;
+
+    String name, price, desc, qty, unit;
     int image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_product_details);
+        setContentView(R.layout.activity_product_details);
 
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        image = intent.getIntExtra("image", R.drawable.b1);
-        desc = intent.getStringExtra("description");
-        qty = intent.getStringExtra("Quantity");
-        price = intent.getStringExtra("price");
-        unit = intent.getStringExtra("Unit");
+        Intent i = getIntent();
 
-        productName = findViewById(R.id.product_name);
-        productDescription = findViewById(R.id.prodDesc);
-        productPrice = findViewById(R.id.prodPrice);
-        productQuantity = findViewById(R.id.qty);
-        productUnit = findViewById(R.id.unit);
+        name = i.getStringExtra("name");
+        image = i.getIntExtra("image", R.drawable.b1);
+        price = i.getStringExtra("price");
+        desc = i.getStringExtra("desc");
+        qty = i.getStringExtra("qty");
+        unit = i.getStringExtra("unit");
+
+        proName = findViewById(R.id.productName);
+        proDesc = findViewById(R.id.prodDesc);
+        proPrice = findViewById(R.id.prodPrice);
         img = findViewById(R.id.big_image);
         back = findViewById(R.id.back2);
+        proQty = findViewById(R.id.qty);
+        proUnit = findViewById(R.id.unit);
 
-        productName.setText(name);
-        productPrice.setText(price);
-        productDescription.setText(desc);
+        proName.setText(name);
+        proPrice.setText(price);
+        proDesc.setText(desc);
+        proQty.setText(qty);
+        proUnit.setText(unit);
+
+
         img.setImageResource(image);
 
-       back.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent i = new Intent(ProductDetails.this, MainActivity.class);
-               startActivity(i);
-               finish();
-           }
-       });
 
-    }
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(ProductDetails.this, MainActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+        });
+}
 }
