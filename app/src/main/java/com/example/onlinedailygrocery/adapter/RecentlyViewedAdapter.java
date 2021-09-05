@@ -1,6 +1,7 @@
 package com.example.onlinedailygrocery.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.LabeledIntent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinedailygrocery.ProductDetails;
 import com.example.onlinedailygrocery.R;
 import com.example.onlinedailygrocery.model.RecentlyViewed;
 
@@ -20,6 +22,7 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
 
     Context context;
     List<RecentlyViewed> recyclerViewList;
+    private int position;
 
     public RecentlyViewedAdapter(Context context, List<RecentlyViewed> recyclerViewList) {
         this.context = context;
@@ -35,6 +38,7 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
 
     @Override
     public void onBindViewHolder(@NonNull RecentlyViewedHolder holder, int position) {
+        this.position = position;
         holder.name.setText(recyclerViewList.get(position).getName());
         holder.description.setText(recyclerViewList.get(position).getDescription());
         holder.price.setText(recyclerViewList.get(position).getPrice());
@@ -42,6 +46,17 @@ public class RecentlyViewedAdapter extends RecyclerView.Adapter<RecentlyViewedAd
         holder.unit.setText(recyclerViewList.get(position).getUnit());
         holder.bg.setBackgroundResource(recyclerViewList.get(position).getImageURL());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ProductDetails.class);
+                intent.putExtra("name",recyclerViewList.get(position).getName());
+                intent.putExtra("image",recyclerViewList.get(position).getBgImageURL());
+                intent.putExtra("price",recyclerViewList.get(position).getPrice());
+                intent.putExtra("desc",recyclerViewList.get(position).getDescription());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

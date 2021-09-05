@@ -7,14 +7,16 @@ public class RecentlyViewed {
     String quantity;
     String unit;
     int imageURL;
+    int bgImageURL;
 
-    public RecentlyViewed (String name, String description, String price, String quantity, String unit, int imageURL) {
+    public RecentlyViewed(String name, String description, String price, String quantity, String unit, int imageURL, int bgImageURL) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
         this.unit = unit;
         this.imageURL = imageURL;
+        this.bgImageURL = bgImageURL;
     }
 
     public String getName() {
@@ -63,5 +65,13 @@ public class RecentlyViewed {
 
     public void setImageURL(int imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public int getBgImageURL() {
+        return bgImageURL;
+    }
+
+    public void setBgImageURL(int bgImageURL) {
+        this.bgImageURL = bgImageURL;
     }
 }

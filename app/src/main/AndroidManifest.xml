@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineDailyGrocery">
         <activity
+            android:name=".ProductDetails"
+            android:exported="true" />
+        <activity
             android:name=".AllCategory"
             android:exported="true" />
         <activity
