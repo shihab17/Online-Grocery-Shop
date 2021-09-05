@@ -14,19 +14,23 @@ import android.widget.Toast;
 
 import com.example.onlinedailygrocery.adapter.CategoryAdapter;
 import com.example.onlinedailygrocery.adapter.DiscountedProductAdapter;
+import com.example.onlinedailygrocery.adapter.RecentlyViewedAdapter;
 import com.example.onlinedailygrocery.model.Category;
 import com.example.onlinedailygrocery.model.DiscountedProducts;
+import com.example.onlinedailygrocery.model.RecentlyViewed;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    RecyclerView discountRecyclerView, categoryRecyclerView;
+    RecyclerView discountRecyclerView, categoryRecyclerView, recentlyViewedRecycler;
     DiscountedProductAdapter discountedProductAdapter;
     CategoryAdapter categoryAdapter;
+    RecentlyViewedAdapter recentlyViewedAdapter;
 
     List<DiscountedProducts> discountedProductsList;
     List<Category> categoryList;
+    List<RecentlyViewed> recentlyViewedList;
 
     ImageView allCategory;
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         discountRecyclerView = findViewById(R.id.discountedRecyler);
         categoryRecyclerView = findViewById(R.id.categoryRecycler);
         allCategory = findViewById(R.id.allCategoryImage);
+        recentlyViewedRecycler = findViewById(R.id.recently_item);
 
         allCategory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,8 +73,16 @@ public class MainActivity extends AppCompatActivity {
         categoryList.add(new Category(8, R.drawable.ic_meat));
         categoryList.add(new Category(9, R.drawable.ic_drink));
 
+        //adding data to model
+        recentlyViewedList = new ArrayList<>();
+        recentlyViewedList.add(new RecentlyViewed("Watermelon","Watermelon has high water content and also provided some fiber ","80","2","KG",R.drawable.card4));
+        recentlyViewedList.add(new RecentlyViewed("Papaya","Watermelon has high water content and also provided some fiber ","80","2","KG",R.drawable.card3));
+        recentlyViewedList.add(new RecentlyViewed("Strawberry","Watermelon has high water content and also provided some fiber ","80","2","KG",R.drawable.card2));
+        recentlyViewedList.add(new RecentlyViewed("Kiwi","Watermelon has high water content and also provided some fiber ","80","2","KG",R.drawable.card1));
+
         setDiscountedRecycler(discountedProductsList);
         setCategoryRecycler(categoryList);
+        setRecentlyViewedRecycler(recentlyViewedList);
     }
 
     private void setDiscountedRecycler(List<DiscountedProducts> dataList) {
@@ -85,5 +98,13 @@ public class MainActivity extends AppCompatActivity {
         categoryRecyclerView.setLayoutManager(layoutManager);
         categoryAdapter = new CategoryAdapter(this,categoryDataList);
         categoryRecyclerView.setAdapter(categoryAdapter);
+    }
+
+    private void setRecentlyViewedRecycler(List<RecentlyViewed> recentlyViewedDataList) {
+//        Log.d("DataList: ","dataList");
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        recentlyViewedRecycler.setLayoutManager(layoutManager);
+        recentlyViewedAdapter = new RecentlyViewedAdapter(this,recentlyViewedDataList);
+        recentlyViewedRecycler.setAdapter(recentlyViewedAdapter);
     }
 }
